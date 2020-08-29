@@ -47,6 +47,9 @@ bot.on("message", async (msg) => {
       );
     }
   }
+  if (command.includes("asyncing") && command.includes("org")) {
+    msg.channel.send("https://github.com/Asyncing-Ship");
+  }
   if (command.includes("fs in the chat")) {
     msg.channel.send("F");
   }
