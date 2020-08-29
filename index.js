@@ -18,11 +18,6 @@ bot.on("message", async (msg) => {
   if (Math.random() * 4 <= 0.01) msg.channel.send(`U WOT M8?`);
   if (msg.author.bot) return;
   //hype me up
-  if (command.includes("repo")) {
-    let message =
-      "repository: https://github.com/Asyncing-Ship/turtle_mountain";
-    msg.channel.send(`${message}`);
-  }
   if (command.includes("oh sht")) {
     msg.channel.send(`Waddup :frog:`);
   }
@@ -52,16 +47,8 @@ bot.on("message", async (msg) => {
       );
     }
   }
-  if (command.includes("fs in the")) {
+  if (command.includes("fs in the chat")) {
     msg.channel.send("F");
-  }
-  if (command.includes("scope")) {
-    msg.channel.send(`
-    https://docs.google.com/document/d/1btFNSfnXun4piPZNh7NcklF67KnIAH7euiD7GmNfwXI/edit`);
-  }
-  if (command.startsWith("wireframe")) {
-    let message = "wireframe: https://balsamiq.cloud/shcoshj/pjo3j3w/rAD7A";
-    msg.channel.send(`${message}`);
   }
   if (command.startsWith("nerf")) {
     let message1 =
@@ -124,15 +111,18 @@ bot.on("message", async (msg) => {
   if (command.includes("commands")) {
     msg.channel.send(
       `REPO: \nsends the link to the github repo\n\n
-      POC: \nHunter contact info\n\n
+      HUNTER: \nHunter contact info\n\n
+      KENT: \nKent's contact info (toDo)\n\n
+      LEVI: \nLevi's contact info (toDo)\n\n
+      Jared: \nJared's contact info (toDo)\n\n
       SCOPE: \n sends the scope document link\n\n
       WIREFRAME: \n sends the balsamiq link\n\n
       `
     );
   }
-  if (command.includes("poc")) {
+  if (command.includes("hunter")) {
     msg.channel.send(
-      `Person of color: \nHunter Scheel\nHunter.scheel@outlook.com\n(701)429-0007`
+      `\nHunter Scheel\nHunter.scheel@outlook.com\n(701)429-0007\nhunterEdward98.github.io`
     );
   }
   //change bot nickname
