@@ -1,180 +1,158 @@
 // Run dotenv
-require('dotenv').config();
+require("dotenv").config();
 
-const Discord = require('discord.js');
-const ytdl = require('ytdl-core');
-const client = new Discord.Client();
-
-client.once('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
+const Discord = require("discord.js");
+const bot = new Discord.Client();
+bot.once("ready", () => {
+  console.log(`Logged in as ${bot.user.tag}!`);
 });
-client.once(`reconnecting`, () => {
+bot.once(`reconnecting`, () => {
   console.log(`Reconnecting!`);
 });
-client.once(`disconnect`, () => {
+bot.once(`disconnect`, () => {
   console.log(`Disconnect!`);
 });
-client.on('message', async msg => {
+bot.on("message", async (msg) => {
   const command = msg.content.toLowerCase();
-  if (msg.author.bot) { return; }
-  /*
-    for every condition in DnD, have a command. Have the bot return what the condition means for the player.
-  */
-  if (command.startsWith('exhausted')) {
-    msg.channel.send(`1. Disadvantage on Ability Checks\n2. Speed Halved\n3. Disadvantage on Attack rolls and Saving throws\n4. Hit point maximum halved\n5. Speed reduced to 0\n6. Death `);
-  }
-  if (command.startsWith('unconscious')) {
-    msg.channel.send(`An unconscious creature is incapacitated (see the condition), can’t move or speak, and is unaware of its surroundings
-    \nThe creature drops whatever it’s holding and falls prone.
-    \nThe creature automatically fails Strength and Dexterity Saving Throws.
-    \nAttack rolls against the creature have advantage.`);
-  }
-  if (command.startsWith('stunned')) {
-    msg.channel.send(`A stunned creature is incapacitated (see the condition), can’t move, and can speak only falteringly.
-    \nThe creature automatically fails Strength and Dexterity Saving Throws.
-    \nAttack rolls against the creature have advantage.`);
-  }
-  if (command.startsWith('restrained')) {
-    msg.channel.send(`A restrained creature’s speed becomes 0, and it can’t benefit from any bonus to its speed.
-    \nAttack rolls against the creature have advantage, and the creature’s Attack rolls have disadvantage.
-    \nThe creature has disadvantage on Dexterity Saving Throws.`);
-  }
-  if (command.startsWith('prone')) {
-    msg.channel.send(`A prone creature’s only Movement option is to crawl, unless it stands up and thereby ends the condition.
-    \nThe creature has disadvantage on Attack rolls.
-    \nAn Attack roll against the creature has advantage if the attacker is within 5 feet of the creature. Otherwise, the Attack roll has disadvantage.`);
-  }
-  if (command.startsWith('poisoned')) {
-    msg.channel.send(`A poisoned creature has disadvantage on Attack rolls and Ability Checks. \n It can also have other adverse effects, at DM discretion`);
-  }
-  if (command.startsWith('petrified')) {
-    msg.channel.send(`A petrified creature is transformed, along with any nonmagical object it is wearing or carrying, into a solid inanimate substance (usually stone). Its weight increases by a factor of ten, and it ceases aging.\n
-    The creature is incapacitated (see the condition), can’t move or speak, and is unaware of its surroundings.\n
-    Attack rolls against the creature have advantage.\n
-    The creature automatically fails Strength and Dexterity Saving Throws.\n
-    The creature has Resistance to all damage.\n
-    The creature is immune to poison and disease, although a poison or disease already in its system is suspended, not neutralized.`);
-  }
-  if (command.startsWith('paralyzed')) {
-    msg.channel.send(`A paralyzed creature is incapacitated (see the condition) and can’t move or speak.\n
-    The creature automatically fails Strength and Dexterity Saving Throws.\n
-    Attack rolls against the creature have advantage.\n
-    Any Attack that hits the creature is a critical hit if the attacker is within 5 feet of the creature.`);
-  }
-  if (command.startsWith('invisible')) {
-    msg.channel.send(`An invisible creature is impossible to see without the aid of magic or a Special sense. For the purpose of Hiding, the creature is heavily obscured. The creature’s location can be detected by any noise it makes or any tracks it leaves.\n
-    Attack rolls against the creature have disadvantage, and the creature’s Attack rolls have advantage.`);
-  }
-  if (command.startsWith('incapacitated')) {
-    msg.channel.send(`An incapacitated creature can’t take Actions or Reactions.`);
-  }
-  if (command.startsWith('grappled')) {
-    msg.channel.send(`A grappled creature’s speed becomes 0, and it can’t benefit from any bonus to its speed.\n
-    The condition ends if the Grappler is incapacitated (see the condition).\n
-    The condition also ends if an effect removes the grappled creature from the reach of the Grappler or Grappling effect, such as when a creature is hurled away by the Thunderwave spell.`);
-  }
-  if (command.startsWith('frightened')) {
-    msg.channel.send(`A frightened creature has disadvantage on Ability Checks and Attack rolls while the source of its fear is within line of sight.
-    The creature can’t willingly move closer to the source of its fear.`);
-  }
-  if (command.startsWith('deafened')) {
-    msg.channel.send(`A deafened creature can’t hear and automatically fails any ability check that requires hearing.`);
-  }
-  if (command.startsWith('charmed')) {
-    msg.channel.send(`A charmed creature can’t Attack the charmer or target the charmer with harmful Abilities or magical Effects.\n
-    The charmer has advantage on any ability check to interact socially with the creature.`);
-  }
-  if (command.startsWith('blinded')) {
-    msg.channel.send(`A blinded creature can’t see and automatically fails any ability check that requires sight.\n
-    Attack rolls against the creature have advantage, and the creature’s Attack rolls have disadvantage.`);
-  }
-
-
-  //show a list of conditions in DnD
-  if(command.includes('condition')){
-    msg.channel.send('LIST OF CONDITIONS:\nblinded\ncharmed\ndeafened\nfrightened\ngrappled\nincapacitated\ninvisible\nparalyzed\npetrified\npoisoned\nprone\nrestrained\nstunned\nunconscious\nexhausted');
-  }
-
+  if (Math.random() * 4 <= 0.01) msg.channel.send(`UwU`);
+  if (Math.random() * 4 <= 0.01) msg.channel.send(`U WOT M8?`);
+  if (msg.author.bot) return;
   //hype me up
-  if (command.includes('shut up')) {
-    let message = "yeah, shut up";
-    if (command.includes('bauder')) {
-      message += (' bitch');
+  if (command.includes("repo")) {
+    let message =
+      "repository: https://github.com/Asyncing-Ship/turtle_mountain";
+    msg.channel.send(`${message}`);
+  }
+  if (command.includes("oh sht")) {
+    msg.channel.send(`Waddup :frog:`);
+  }
+  if (command.includes("dad")) {
+    msg.channel.send(
+      ":confounded:  daddy " +
+        msg.author.username +
+        " :sweat_drops: :eggplant: "
+    );
+  }
+  if (
+    command.includes("lol.") ||
+    command.includes("iol.") ||
+    command.includes("loi.") ||
+    command.includes("ioi.")
+  ) {
+    if (command.includes("lol.")) {
+      msg.channel.send(":hearts: Lots of love :hearts:");
     }
-    msg.channel.send(`${message}!`)
+    if (
+      command.includes("iol.") ||
+      command.includes("loi.") ||
+      command.includes("ioi.")
+    ) {
+      msg.channel.send(
+        "https://thumbs.gfycat.com/BlindForkedGoldenretriever-size_restricted.gif"
+      );
+    }
   }
-  if (command.startsWith('oh boy')) {
-    msg.channel.send('oh boy indeed');
+  if (command.includes("fs in the")) {
+    msg.channel.send("F");
   }
-  //this is a joke. not actually a pedo
-  if (command.includes('loli')) {
-    msg.channel.send('https://pedo.help');
+  if (command.includes("scope")) {
+    msg.channel.send(`
+    https://docs.google.com/document/d/1btFNSfnXun4piPZNh7NcklF67KnIAH7euiD7GmNfwXI/edit`);
   }
-
-  //if someone's name is stated, @their_character_name
-  if (command.includes('bauder')) {
-    msg.channel.send('@shiro');
+  if (command.startsWith("wireframe")) {
+    let message = "wireframe: https://balsamiq.cloud/shcoshj/pjo3j3w/rAD7A";
+    msg.channel.send(`${message}`);
   }
-  if (command.includes('smitty') || msg.content.includes('austin')) {
-    msg.channel.send('@laxog');
+  if (command.startsWith("nerf")) {
+    let message1 =
+      "https://media3.giphy.com/media/1XeAoRH74h7i0MtwCU/giphy.gif";
+    let message2 =
+      "https://nerfthis2017.files.wordpress.com/2017/10/lttht525k9zf42vwh66v.gif";
+    let message3 =
+      "https://steamuserimages-a.akamaihd.net/ugc/178286983344997323/C3D967D62B0CA08007AEE7BAB561829ED287E8A4/";
+    let message;
+    switch (Math.floor(Math.random() * 3)) {
+      case 1:
+        message = message1;
+        break;
+      case 2:
+        message = message2;
+        break;
+      default:
+        message = message3;
+        break;
+    }
+    msg.channel.send(`${message}`);
   }
-  if (command.includes('hunter')) {
-    msg.channel.send('@DM');
+  if (command.includes("nice job")) {
+    msg.channel.send(`You too, ${msg.author}`);
   }
-  if (command.includes('colton')) {
-    msg.channel.send('@precht, @prosch, @liuf');
+  if (command.includes("simp")) {
+    if (Math.random() * 5 < 4.7) {
+      msg.channel.send(
+        `https://media.tenor.com/images/9898a0f4c9e1e800834cd7a0251a3f8c/tenor.gif`
+      );
+    } else {
+      msg.channel.send(
+        `https://media.tenor.com/images/e726878c730cec0850a7fb4c3324f6a0/tenor.gif`
+      );
+    }
   }
-  if (command.includes('lundy')) {
-    msg.channel.send('@wren');
+  if (command.includes("pog")) {
+    msg.channel.send(
+      `░░░░░░▒░░▄██▄░▒░░░░░░
+       ░░░▄██████████▄▒▒░░░
+       ░▒▄████████████▓▓▒░░ 
+       ▓███▓▓█████▀▀████▒░░ 
+       ▄███████▀▀▒░░░░▀█▒░░ 
+       ████████▄░░░░░░░▀▄░░ 
+       ▀██████▀░░▄▀▀▄░░▄█▒░ 
+       ░█████▀░░░░▄▄░░▒▄▀░░ 
+       ░█▒▒██░░░░▀▄█░░▒▄█░░ 
+       ░█░▓▒█▄░░░░░░░░░▒▓░░ 
+       ░▀▄░░▀▀░▒░░░░░▄▄░▒░░ 
+       ░░█▒▒▒▒▒▒▒▒▒░░░░▒░░░ 
+       ░░░▓▒▒▒▒▒░▒▒▄██▀░░░░ 
+       ░░░░▓▒▒▒░▒▒░▓▀▀▒░░░░ 
+       ░░░░░▓▓▒▒░▒░░▓▓░░░░░ 
+       ░░░░░░░▒▒▒▒▒▒▒░░░░░░`
+    );
   }
-  if (command.includes('bryce')) {
-    msg.channel.send('@yaza');
-  }
-
-  //give me the playlist for X:
-  if (command.includes('casual')) {
-    msg.channel.send('!play https://youtu.be/xHP2GgxYddY?list=PLSkW9yhFguFRP0FZbD3W1_aY1gzYS9KBl');
-  }
-  if (command.includes('boss')) {
-    msg.channel.send('!play https://www.youtube.com/playlist?list=PLtVWk0ZeBy0PNRxOgQv5pBZ8zmt9lAlFs');
-  }
-  if (command.includes('dungeon')) {
-    msg.channel.send('!play https://youtu.be/FBaI2bwnHGI');
-  }
-  if (command.includes('combat')) {
-    msg.channel.send('!play https://www.youtube.com/watch?v=tigBxYfHfH4&list=PLymPg-Cc86_ZY86xXdAjnx-Nzaa3arIqe');
-  }
-  
-  //display the kill list that was found in my campaign
-  if (command.includes('kill list')) {
-    msg.channel.send(`DEAD:\n Krioleeg Prujot\n Shantel Samson\n Sengart Todina \n Benjamin Sandin\n\nALIVE AS FAR AS YOU KNOW:\n Chelsey Stramble\n Karl Fredrickson\n Charles Damekross\n Shelby Worgslayer\n Sossiree Kroni\n Beloz`)
-  }
-
+  //hype me up
+  if (command.includes("shut up")) msg.channel.send(`yeah, shut up!`);
   //commands = show commands
-  if (command.includes('commands')) {
-    msg.channel.send(`CONDITIONS: \nsends the list of condition commands\n\n`);
-    msg.channel.send(`KILL LIST: \ndisplay the kill list`);
-    msg.channel.send(`NAME_OF_PERSON: \nsends who they play\n\n`);
-    msg.channel.send(`SHUT UP: \ntells them to shut up\n ALSO TRY: shut up, bauder\n\n\n`);
-    msg.channel.send(`LOLI: \nsends link to pedo.help\n\n`);
-    msg.channel.send('CASUAL: \nsend casual music playlist\n\n');
-    msg.channel.send('DUNGEON:\n send dungeon ambient playlist\n\n');
-    msg.channel.send('COMBAT:\n send combat music playlist\n\n');
-    msg.channel.send('BOSS:\n send boss fight playlist\n\n');
+  if (command.includes("commands")) {
+    msg.channel.send(
+      `REPO: \nsends the link to the github repo\n\n
+      POC: \nHunter contact info\n\n
+      SCOPE: \n sends the scope document link\n\n
+      WIREFRAME: \n sends the balsamiq link\n\n
+      `
+    );
+  }
+  if (command.includes("poc")) {
+    msg.channel.send(
+      `Person of color: \nHunter Scheel\nHunter.scheel@outlook.com\n(701)429-0007`
+    );
   }
   //change bot nickname
-
-  else if (command.startsWith('nickname')) {
+  else if (command.startsWith("nickname")) {
     let words = msg.content.split(" ");
     if (words[1]) {
-      if (!msg.guild.me.hasPermission('MANAGE_NICKNAMES')) return msg.channel.send('I don\'t have permission to change my nickname!');
-      msg.guild.me.setNickname(msg.content.replace('nickname', ''));
-      msg.channel.send(`YOU HAVE SET MY NICKNAME TO:${msg.content.replace('nickname', '')}.`);
-    }
-    else {
-      msg.channel.send(`My nickname is ${msg.guild.me.nickname}. if you would like to change it, say nickname, then what you wish it to be`);
+      if (!msg.guild.me.hasPermission("MANAGE_NICKNAMES"))
+        return msg.channel.send(
+          "I don't have permission to change my nickname!"
+        );
+      msg.guild.me.setNickname(msg.content.replace("nickname", ""));
+      msg.channel.send(
+        `YOU HAVE SET MY NICKNAME TO:${msg.content.replace("nickname", "")}.`
+      );
+    } else {
+      msg.channel.send(
+        `My nickname is ${msg.guild.me.nickname}. if you would like to change it, say nickname, then what you wish it to be`
+      );
     }
   }
 });
 
-client.login(process.env.DISCORD_TOKEN);
+bot.login(process.env.TOKEN);
