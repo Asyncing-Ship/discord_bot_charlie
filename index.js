@@ -14,38 +14,12 @@ bot.once(`disconnect`, () => {
 });
 bot.on("message", async (msg) => {
   const command = msg.content.toLowerCase();
-  if (Math.random() * 4 <= 0.01) msg.channel.send(`UwU`);
-  if (Math.random() * 4 <= 0.01) msg.channel.send(`U WOT M8?`);
+  if (Math.random() * 4 <= 0.001) msg.channel.send(`UwU`);
+  if (Math.random() * 4 <= 0.001) msg.channel.send(`U WOT M8?`);
   if (msg.author.bot) return;
   //hype me up
   if (command.includes("oh sht")) {
     msg.channel.send(`Waddup :frog:`);
-  }
-  if (command.includes("dad")) {
-    msg.channel.send(
-      ":confounded:  daddy " +
-        msg.author.username +
-        " :sweat_drops: :eggplant: "
-    );
-  }
-  if (
-    command.includes("lol.") ||
-    command.includes("iol.") ||
-    command.includes("loi.") ||
-    command.includes("ioi.")
-  ) {
-    if (command.includes("lol.")) {
-      msg.channel.send(":hearts: Lots of love :hearts:");
-    }
-    if (
-      command.includes("iol.") ||
-      command.includes("loi.") ||
-      command.includes("ioi.")
-    ) {
-      msg.channel.send(
-        "https://thumbs.gfycat.com/BlindForkedGoldenretriever-size_restricted.gif"
-      );
-    }
   }
   if (command.includes("asyncing") && command.includes("org")) {
     msg.channel.send("https://github.com/Asyncing-Ship");
@@ -53,7 +27,7 @@ bot.on("message", async (msg) => {
   if (command.includes("fs in the chat")) {
     msg.channel.send("F");
   }
-  if (command.startsWith("nerf")) {
+  if (command.startsWith("!nerf")) {
     let message1 =
       "https://media3.giphy.com/media/1XeAoRH74h7i0MtwCU/giphy.gif";
     let message2 =
@@ -77,7 +51,7 @@ bot.on("message", async (msg) => {
   if (command.includes("nice job")) {
     msg.channel.send(`You too, ${msg.author}`);
   }
-  if (command.includes("simp")) {
+  if (command.includes("!simp")) {
     if (Math.random() * 5 < 4.7) {
       msg.channel.send(
         `https://media.tenor.com/images/9898a0f4c9e1e800834cd7a0251a3f8c/tenor.gif`
@@ -88,7 +62,7 @@ bot.on("message", async (msg) => {
       );
     }
   }
-  if (command.includes("pog")) {
+  if (command.includes("!pog")) {
     msg.channel.send(
       `░░░░░░▒░░▄██▄░▒░░░░░░
        ░░░▄██████████▄▒▒░░░
@@ -109,9 +83,15 @@ bot.on("message", async (msg) => {
     );
   }
   //hype me up
-  if (command.includes("shut up")) msg.channel.send(`yeah, shut up!`);
+  if (command.includes("shut up")) {
+    if (command.includes("charlie")) {
+      msg.channel.send("ok, sorry. :(");
+    } else {
+      msg.channel.send(`yeah, shut up!`);
+    }
+  }
   //commands = show commands
-  if (command.includes("commands")) {
+  if (command.includes("!commands")) {
     msg.channel.send(
       `REPO: \nsends the link to the github repo\n\n
       HUNTER: \nHunter contact info\n\n
@@ -123,13 +103,13 @@ bot.on("message", async (msg) => {
       `
     );
   }
-  if (command.includes("hunter")) {
+  if (command.includes("!hunter")) {
     msg.channel.send(
       `\nHunter Scheel\nHunter.scheel@outlook.com\n(701)429-0007\nhunterEdward98.github.io`
     );
   }
   //change bot nickname
-  else if (command.startsWith("nickname")) {
+  else if (command.startsWith("!nickname")) {
     let words = msg.content.split(" ");
     if (words[1]) {
       if (!msg.guild.me.hasPermission("MANAGE_NICKNAMES"))
