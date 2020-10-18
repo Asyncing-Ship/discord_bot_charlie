@@ -114,6 +114,24 @@ bot.on("message", async (msg) => {
         `\nHunter Scheel\nHunter.scheel@outlook.com\n(701)429-0007\nhunterEdward98.github.io`
       );
     }
+    if (command.includes("!kent")) {
+      msg.channel.send(
+        `\nKent Worthington\ntheaceco@protonmail.com\n(701)793-3976\ngithub.com/herschelw`
+      );
+    }
+    if (command.includes("!ian")) {
+      msg.channel.send(
+        `\nIan Johnson\nianjohnson9042@gmail.com\n(701)388-3597 \nianjustus.com`
+      );
+    }
+    if (command.includes("!jake")) {
+      msg.channel.send(`Jake Schaffer\n605-940-0022\nimjakedev@gmail.com\n`);
+    }
+    if (command.includes("!levi")) {
+      msg.channel.send(
+        `\nLevi Carlson\nlevicarlson123@gmail.com\n(802)851-0009\nhttps://levee.github.io/`
+      );
+    }
     //change bot nickname
     else if (command.startsWith("!nickname")) {
       let words = msg.content.split(" ");
